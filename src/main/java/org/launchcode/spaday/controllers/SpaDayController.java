@@ -27,22 +27,22 @@ public class SpaDayController {
     @GetMapping(value="")
     @ResponseBody
     public String customerForm () {
-        String html = "<form method = 'post'>" +
+        String html = "<form method ='post'>" +
                 "Name: <br>" +
-                "<input type = 'text' name = 'name'>" +
+                "<input type ='text' name='name'>" +
                 "<br>Skin type: <br>" +
-                "<select name = 'skintype'>" +
-                "<option value = 'oily'>Oily</option>" +
-                "<option value = 'combination'>Combination</option>" +
-                "<option value = 'normal'>Normal</option>" +
-                "<option value = 'dry'>Dry</option>" +
+                "<select name='skintype'>" +
+                "<option value='oily'>Oily</option>" +
+                "<option value='combination'>Combination</option>" +
+                "<option value='normal'>Normal</option>" +
+                "<option value='dry'>Dry</option>" +
                 "</select><br>" +
                 "Manicure or Pedicure? <br>" +
-                "<select name = 'manipedi'>" +
-                "<option value = 'manicure'>Manicure</option>" +
-                "<option value = 'pedicure'>Pedicure</option>" +
+                "<select name='manipedi'>" +
+                "<option value='manicure'>Manicure</option>" +
+                "<option value='pedicure'>Pedicure</option>" +
                 "</select><br>" +
-                "<input type = 'submit' value = 'Submit'>" +
+                "<input type='submit' value = 'Submit'>" +
                 "</form>";
         return html;
     }
@@ -62,6 +62,10 @@ public class SpaDayController {
                 appropriateFacials.add(facials.get(i));
             }
         }
+        model.addAttribute("name", name);
+        model.addAttribute("skintype", skintype);
+        model.addAttribute("manipedi", manipedi);
+        model.addAttribute("appropriateFacials", appropriateFacials);
 
         return "menu";
     }
